@@ -1,11 +1,13 @@
 import Foundation
 
-class Heap<T> {
+public class Heap<T> {
 	private var start: HeapElement<T>?
 	private var end: HeapElement<T>?
-	var count: Int = 0
+	public var count: Int = 0
 
-	func enqueue(_ v: T) {
+	public init() {}
+
+	public func enqueue(_ v: T) {
 		let newElement = HeapElement.init(with: v)
 		if start == nil {
 			start = newElement
@@ -17,7 +19,7 @@ class Heap<T> {
 		count += 1
 	}
 
-	func dequeue() -> T? {
+	public func dequeue() -> T? {
 		let firstValue = start?.value
 		start = start?.next
 		count = max(0,count - 1)
